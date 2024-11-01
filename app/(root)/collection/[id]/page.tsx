@@ -3,14 +3,12 @@ import { getCollectionDetails } from "@/lib/actions";
 import Image from "next/image";
 import React from "react";
 
-const CollectionDetails = async ({
-  params,
-}: {
-  params: { id: string };
-}) => {
-    const { id } = await params;
+type Params = Promise<{ id: string }>;
+
+const CollectionDetails = async ({ params }: { params: Params }) => {
+  const { id } = await params;
   const collectionDetails = await getCollectionDetails(id);
-  console.log(collectionDetails)
+  console.log(collectionDetails);
 
   return (
     <div className="px-10 py-5 flex flex-col items-center gap-8">

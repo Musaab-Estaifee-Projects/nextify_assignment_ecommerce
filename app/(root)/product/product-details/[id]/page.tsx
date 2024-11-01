@@ -4,7 +4,9 @@ import AddToCart from "./add-to-cart";
 // import ProductCard from "@/components/Home/ProductCard";
 import { getProductById } from "@/lib/actions";
 
-const ProductDetailsPage = async ({ params }: { params: { id: string } }) => {
+type Params = Promise<{ id: string }>;
+
+const ProductDetailsPage = async ({ params }: { params: Params }) => {
   const { id } = await params;
   const product: ProductType = await getProductById(id);
 
